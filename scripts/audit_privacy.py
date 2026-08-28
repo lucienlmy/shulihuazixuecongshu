@@ -285,12 +285,14 @@ def main() -> int:
         epub_count, epub_entries = scan_epubs(findings, identifiers)
 
     commit_count = scan_commit_identities(findings)
-    remotes = subprocess.run(
+    remote_lines = subprocess.run(
         ["git", "remote", "-v"], cwd=ROOT, text=True, capture_output=True, check=False
     ).stdout.splitlines()
-    for remote in remotes:
+    remote_names: set[str] = set()
+    for remote in remote_lines:
         parts = remote.split()
         if len(parts) >= 2:
+            remote_names.add(parts[0])
             parsed = urlsplit(parts[1])
             if parsed.password:
                 record(findings, "credential_in_git_remote", ".git/config")
@@ -309,7 +311,7 @@ def main() -> int:
             "generated_epubs_scanned": epub_count,
             "generated_epub_entries_seen": epub_entries,
             "git_commits_scanned": commit_count,
-            "git_remotes": len(remotes),
+            "git_remotes": len(remote_names),
             "local_identifiers_checked": len(identifiers),
             "findings": len(findings),
             "warnings": len(warnings),

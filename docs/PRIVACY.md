@@ -37,10 +37,10 @@ make pre-push
 - 未发现手机号码或身份证号码样式
 - 4,981 个 PNG 仅含 `IHDR`、`IDAT`、`IEND`，无 EXIF、文本、GPS、软件或时间元数据
 - 17 个生成 EPUB 的文本条目未发现本机或秘密信息
-- 无符号链接，无 Git 远端，无既有提交历史
+- 无符号链接；已配置的 Git 远端不含内嵌凭据；初始提交历史审计通过
 
 `catalog.json` 中的 UUID 是电子书公开标识符，不是设备 UUID。EPUB 中的 Pandoc 生成器名称是公开软件信息，不包含设备或账户数据。
 
 ## GitHub 身份建议
 
-首次提交前建议将提交邮箱设置为 GitHub noreply 地址，并再次运行 `make pre-push`。本地 `.git/config` 不会被推送，但提交作者邮箱会进入永久 Git 历史。
+本仓库提交邮箱已使用 GitHub noreply 地址。后续维护者提交前仍应确认身份配置，并再次运行 `make pre-push`。本地 `.git/config` 不会被推送，但提交作者邮箱会进入永久 Git 历史。
