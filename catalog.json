@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "collection": "数理化自学丛书",
+  "creator": "数理化自学丛书编委会",
+  "language": "zh-CN",
+  "source_date_epoch": 1787875200,
+  "books": [
+    {
+      "title": "代数（第一册）",
+      "file": "books/代数（第一册） - 数理化自学丛书编委会.md",
+      "subject": "代数",
+      "volume": 1,
+      "identifier": "urn:uuid:5e387ec2-f31f-568b-9db4-5e2873ae030c"
+    },
+    {
+      "title": "代数（第二册）",
+      "file": "books/代数（第二册） - 数理化自学丛书编委会.md",
+      "subject": "代数",
+      "volume": 2,
+      "identifier": "urn:uuid:b183c08c-2394-5a3d-b244-fcbf40e4d645"
+    },
+    {
+      "title": "代数（第三册）",
+      "file": "books/代数（第三册） - 数理化自学丛书编委会.md",
+      "subject": "代数",
+      "volume": 3,
+      "identifier": "urn:uuid:86299abf-ea4e-5b8c-83e2-032d401e444c"
+    },
+    {
+      "title": "代数（第四册）",
+      "file": "books/代数（第四册） - 数理化自学丛书编委会.md",
+      "subject": "代数",
+      "volume": 4,
+      "identifier": "urn:uuid:64ab574a-7666-52ee-9850-f3d9df989904"
+    },
+    {
+      "title": "平面三角",
+      "file": "books/平面三角 - 数理化自学丛书编委会.md",
+      "subject": "几何与三角",
+      "identifier": "urn:uuid:26d35d12-d0dd-525a-b0d4-e818999058cd"
+    },
+    {
+      "title": "平面几何（第一册）",
+      "file": "books/平面几何（第一册） - 数理化自学丛书编委会.md",
+      "subject": "几何与三角",
+      "volume": 1,
+      "identifier": "urn:uuid:b228829c-f491-5606-88e3-d81b2cc31b34"
+    },
+    {
+      "title": "平面几何（第二册）",
+      "file": "books/平面几何（第二册） - 数理化自学丛书编委会.md",
+      "subject": "几何与三角",
+      "volume": 2,
+      "identifier": "urn:uuid:bae37f81-78d6-52b3-87a5-9405b4fa5f15"
+    },
+    {
+      "title": "平面解析几何",
+      "file": "books/平面解析几何 - 数理化自学丛书编委会.md",
+      "subject": "几何与三角",
+      "identifier": "urn:uuid:0caafffe-14ed-547e-ad6e-eb712003a978"
+    },
+    {
+      "title": "立体几何",
+      "file": "books/立体几何 - 数理化自学丛书编委会.md",
+      "subject": "几何与三角",
+      "identifier": "urn:uuid:c3c04df1-50e9-594f-a6a2-9ba1418558d7"
+    },
+    {
+      "title": "化学（第一册）",
+      "file": "books/化学（第一册） - 数理化自学丛书编委会.md",
+      "subject": "化学",
+      "volume": 1,
+      "identifier": "urn:uuid:ffd87be9-1466-553c-b15e-a071d06475b8"
+    },
+    {
+      "title": "化学（第二册）",
+      "file": "books/化学（第二册） - 数理化自学丛书编委会.md",
+      "subject": "化学",
+      "volume": 2,
+      "identifier": "urn:uuid:906c2de5-0a74-5e99-92ed-47f0e8786d23"
+    },
+    {
+      "title": "化学（第三册）",
+      "file": "books/化学（第三册） - 数理化自学丛书编委会.md",
+      "subject": "化学",
+      "volume": 3,
+      "identifier": "urn:uuid:d901a43c-f2ee-5f17-a363-9fcfb3f628db"
+    },
+    {
+      "title": "化学（第四册）",
+      "file": "books/化学（第四册） - 数理化自学丛书编委会.md",
+      "subject": "化学",
+      "volume": 4,
+      "identifier": "urn:uuid:e5c66f4a-5f5e-5d1c-b5ac-9aff0413a531"
+    },
+    {
+      "title": "物理（第一册）",
+      "file": "books/物理（第一册） - 数理化自学丛书编委会.md",
+      "subject": "物理",
+      "volume": 1,
+      "identifier": "urn:uuid:f296a784-a444-5077-8189-142341bbdb91"
+    },
+    {
+      "title": "物理（第二册）",
+      "file": "books/物理（第二册） - 数理化自学丛书编委会.md",
+      "subject": "物理",
+      "volume": 2,
+      "identifier": "urn:uuid:d5fb03f4-5424-5f6a-ba33-f30e35aa500e"
+    },
+    {
+      "title": "物理（第三册）",
+      "file": "books/物理（第三册） - 数理化自学丛书编委会.md",
+      "subject": "物理",
+      "volume": 3,
+      "identifier": "urn:uuid:9db36471-0461-578f-a311-6dcbbce5663e"
+    },
+    {
+      "title": "物理（第四册）",
+      "file": "books/物理（第四册） - 数理化自学丛书编委会.md",
+      "subject": "物理",
+      "volume": 4,
+      "identifier": "urn:uuid:e3de6ca0-cd61-5209-824e-c7ae24cf92b5"
+    }
+  ]
+}
