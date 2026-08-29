@@ -44,10 +44,13 @@ REQUIRED = {
     "epub/wrap_tables.lua",
     "epub/pandoc-data/translations/zh-CN.yaml",
     "reports/.gitkeep",
+    "scripts/audit_pdfs.py",
     "scripts/audit_privacy.py",
     "scripts/audit_repository.py",
     "scripts/audit_sources.py",
     "scripts/build_epubs.py",
+    "raw/README.md",
+    "raw/SHA256SUMS.txt",
 }
 LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 
@@ -105,6 +108,15 @@ def check_png(path: Path, errors: list[str]) -> tuple[int, int]:
     return width, height
 
 
+def check_pdf(path: Path, errors: list[str]) -> None:
+    data = path.read_bytes()
+    relative = path.relative_to(ROOT).as_posix()
+    if not data.startswith(b"%PDF-"):
+        record(errors, f"PDF 签名错误：{relative}")
+    if b"%%EOF" not in data[-4096:]:
+        record(errors, f"PDF 缺少末尾 EOF：{relative}")
+
+
 def check_markdown_links(errors: list[str]) -> int:
     checked = 0
     documents = [ROOT / "README.md", *sorted((ROOT / "docs").glob("*.md"))]
@@ -154,6 +166,12 @@ def main() -> int:
     identifiers = [item.get("identifier", "") for item in books]
     if len(set(identifiers)) != len(identifiers):
         record(errors, "catalog.json 存在重复 EPUB identifier")
+    raw_pdfs = sorted((ROOT / "raw").glob("*.pdf"))
+    expected_raw_names = {
+        f"{item.get('title', '')} - 数理化自学丛书编委会.pdf" for item in books
+    }
+    if len(raw_pdfs) != 17 or {path.name for path in raw_pdfs} != expected_raw_names:
+        record(errors, "raw/ 中的17册 PDF 与 catalog.json 书目不一致")
 
     collisions: dict[str, list[str]] = defaultdict(list)
     non_nfc: list[str] = []
@@ -187,6 +205,7 @@ def main() -> int:
 
     text_files = 0
     png_files = 0
+    pdf_files = 0
     executable_files: list[str] = []
     largest_file = 0
     total_bytes = 0
@@ -209,6 +228,10 @@ def main() -> int:
         if path.suffix.casefold() == ".png":
             png_files += 1
             check_png(path, errors)
+            continue
+        if path.suffix.casefold() == ".pdf":
+            pdf_files += 1
+            check_pdf(path, errors)
             continue
         data = path.read_bytes()
         if b"\x00" in data:
@@ -233,6 +256,7 @@ def main() -> int:
                 record(errors, f"Python 语法错误：{relative}:{exc.lineno}")
 
     allowed_executable = {
+        "scripts/audit_pdfs.py",
         "scripts/audit_privacy.py",
         "scripts/audit_repository.py",
         "scripts/audit_sources.py",
@@ -272,6 +296,7 @@ def main() -> int:
             "push_candidates": len(paths),
             "text_files": text_files,
             "png_files": png_files,
+            "pdf_files": pdf_files,
             "total_bytes": total_bytes,
             "largest_file_bytes": largest_file,
             "files_over_50_mib": sum(path.stat().st_size > GITHUB_WARNING_FILE for path in paths if path.is_file()),

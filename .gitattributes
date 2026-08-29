@@ -8,3 +8,4 @@
 *.bmp binary
 *.svg text eol=lf
 *.epub binary
+*.pdf binary

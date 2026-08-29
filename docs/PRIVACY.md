@@ -12,12 +12,14 @@
 - `.env`、私钥、凭据库等敏感文件名
 - 绝对路径符号链接
 - PNG 文本、EXIF、时间及其他隐私元数据块
+- `raw/` 中 PDF 的哈希、XMP/Info 元数据、附件、批注、表单、JavaScript与其他主动内容
 - `dist/` 中 EPUB 的全部文本型 ZIP 条目
 - 已有 Git 提交中的非 GitHub noreply 邮箱和历史补丁
 
 运行：
 
 ```bash
+make pdf-audit
 make privacy
 ```
 
@@ -36,6 +38,7 @@ make pre-push
 - 未发现 API Key、访问令牌、密码或私钥
 - 未发现手机号码或身份证号码样式
 - 4,981 个 PNG 仅含 `IHDR`、`IDAT`、`IEND`，无 EXIF、文本、GPS、软件或时间元数据
+- 17份原始 PDF（5,927页）无加密、附件、批注、主动脚本、表单数据或隐私模式命中
 - 17 个生成 EPUB 的文本条目未发现本机或秘密信息
 - 无符号链接；已配置的 Git 远端不含内嵌凭据；初始提交历史审计通过
 

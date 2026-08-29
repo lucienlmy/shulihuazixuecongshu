@@ -1,6 +1,6 @@
 # 数理化自学丛书（电子书重建版）
 
-本仓库保存《数理化自学丛书》17 册的语义化 Markdown、扫描插图资源和可复现 EPUB3 构建工具。
+本仓库保存《数理化自学丛书》17 册的原始扫描 PDF、语义化 Markdown、扫描插图资源和可复现 EPUB3 构建工具。
 
 ## 赞助
 
@@ -27,6 +27,7 @@
 ├── books/               # 电子书源文件区
 │   ├── *.md             # 17 册规范正文源
 │   └── assets/          # 4,981 个正文图片资源
+├── raw/                 # 17 册原始扫描 PDF、导入哈希和资料说明
 ├── catalog.json         # 书目、顺序、语言和稳定 EPUB UUID
 ├── epub/                # EPUB 样式、Lua 过滤器及 Pandoc 本地化数据
 ├── scripts/             # 源文件审计与 EPUB3 构建工具
@@ -45,6 +46,8 @@ Markdown 与 `books/assets/` 保持在同一源文件区，因此正文中的 `a
 - Pandoc 3.1+
 - GNU Make（可选）
 
+原始 PDF 深度审计额外需要 PyPDF2 3.x、qpdf、Poppler（`pdfinfo`、`pdfdetach`、`pdfsig`、`pdftotext`）和 ExifTool。
+
 完整审计并构建：
 
 ```bash
@@ -55,6 +58,12 @@ make all
 
 ```bash
 make audit
+```
+
+审计17份原始扫描 PDF 的哈希、结构、附件、主动内容和隐私元数据：
+
+```bash
+make pdf-audit
 ```
 
 仅构建 EPUB：
@@ -88,6 +97,7 @@ make pre-push
 
 ## 当前源资产状态
 
+- 原始扫描 PDF：17 册、5,927 页
 - 规范 Markdown：17 册
 - 图片资源：4,981 个
 - 图片引用：4,984 次

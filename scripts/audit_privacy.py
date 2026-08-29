@@ -250,6 +250,7 @@ def main() -> int:
 
     text_files = 0
     png_files = 0
+    pdf_files = 0
     png_chunks: Counter[str] = Counter()
     symlinks = 0
     for path in paths:
@@ -266,6 +267,13 @@ def main() -> int:
         if path.suffix.casefold() == ".png":
             png_files += 1
             scan_png(path, findings, png_chunks)
+            continue
+        if path.suffix.casefold() == ".pdf":
+            pdf_files += 1
+            data = path.read_bytes()
+            if not data.startswith(b"%PDF-") or b"%%EOF" not in data[-4096:]:
+                record(findings, "invalid_pdf_container", relative)
+            # PDF objects、XMP、附件与主动内容由 make pdf-audit 的结构化门禁检查。
             continue
         data = path.read_bytes()
         if b"\x00" in data:
@@ -306,6 +314,7 @@ def main() -> int:
             "push_candidates": len(paths),
             "text_files_scanned": text_files,
             "png_files_scanned": png_files,
+            "pdf_files_scanned": pdf_files,
             "png_chunk_types": dict(sorted(png_chunks.items())),
             "symlinks": symlinks,
             "generated_epubs_scanned": epub_count,

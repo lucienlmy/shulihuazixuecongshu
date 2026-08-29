@@ -1,11 +1,14 @@
 PYTHON ?= python3
 
-.PHONY: all audit repository privacy epub verify pre-push clean
+.PHONY: all audit pdf-audit repository privacy epub verify pre-push clean
 
 all: audit epub
 
 audit:
 	$(PYTHON) scripts/audit_sources.py
+
+pdf-audit:
+	$(PYTHON) scripts/audit_pdfs.py
 
 repository:
 	$(PYTHON) scripts/audit_repository.py
@@ -19,7 +22,7 @@ epub:
 verify:
 	$(PYTHON) scripts/build_epubs.py --verify-only
 
-pre-push: audit repository privacy verify
+pre-push: audit pdf-audit repository privacy verify
 
 clean:
 	rm -rf .build dist reports/*.json

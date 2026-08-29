@@ -10,6 +10,16 @@
 6. 运行 `make all`，确认 17 册全部通过。
 7. 运行 `make verify`，独立复核已有产物。
 
+## 原始 PDF
+
+`raw/*.pdf` 是校勘来源资料，不是规范正文。新增或替换时：
+
+1. 先在仓库外备份，并确认书名与 `catalog.json` 一致；
+2. 保持导入原字节，不用办公软件另存；
+3. 更新 `raw/SHA256SUMS.txt`；
+4. 运行 `make pdf-audit`，确认 qpdf、附件、主动内容、元数据和隐私门禁17/17通过；
+5. 运行 `make repository privacy`，复核 GitHub 文件大小及公开候选范围。
+
 ## 元数据
 
 书目顺序、题名、语言和稳定 UUID 统一维护在 `catalog.json`。不要因普通正文修订更换 UUID；只有确认电子书身份发生变化时才调整。
