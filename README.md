@@ -2,6 +2,12 @@
 
 本仓库保存《数理化自学丛书》17 册的语义化 Markdown、扫描插图资源和可复现 EPUB3 构建工具。
 
+## 赞助
+
+本项目计算资源由 **交易猫实验室（TradeCat Labs）** 赞助。
+
+**CA：** https://dexscreener.com/bsc/0x8a99b8d53eff6bc331af529af74ad267f3167777
+
 ## 收录书目
 
 - 代数（第一至第四册）
