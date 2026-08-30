@@ -6,6 +6,7 @@ all: audit epub
 
 audit:
 	$(PYTHON) scripts/audit_sources.py
+	$(PYTHON) scripts/audit_chinese_variants.py
 
 pdf-audit:
 	$(PYTHON) scripts/audit_pdfs.py
