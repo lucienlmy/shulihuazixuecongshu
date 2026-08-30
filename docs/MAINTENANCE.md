@@ -10,6 +10,8 @@
 6. 运行 `make all`，确认 17 册全部通过。
 7. 运行 `make verify`，独立复核已有产物。
 
+图片疑似为习题标题、练习标题、页眉或其他纯文字卡片时，不得直接删除；先执行 [`IMAGE_TEXT_CARD_WORKFLOW.md`](IMAGE_TEXT_CARD_WORKFLOW.md) 中的只读候选、长上下文、原PDF版面、隔离修改和构建门禁。
+
 ## 原始 PDF
 
 `raw/*.pdf` 是校勘来源资料，不是规范正文。新增或替换时：
