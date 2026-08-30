@@ -86,6 +86,16 @@ python3 scripts/build_epubs.py --book '代数（第一册）'
 
 输出位于 `dist/`，报告位于 `reports/`。构建器会检查 ZIP、XML、元数据、内部链接、图片替代文本、MathML 数量以及 EPUB3 nav/EPUB2 NCX 同步状态。同一源文件、同一 Pandoc 版本和同一 `SOURCE_DATE_EPOCH` 下，输出字节可复现。
 
+## Release 发布策略
+
+从 `v2.0.0` 起，GitHub Release 只发布以下三本学科合订版 EPUB，不再上传17本独立 EPUB：
+
+- 数学（合订本）
+- 物理学（合订本）
+- 化学（合订本）
+
+17册 Markdown、原始 PDF、资源和单册构建能力继续保留在仓库中，作为合订本的可审计来源。既有 `v1.0.0`、`v1.1.0` Release 保留，不追溯删除。
+
 ## 发布前隐私审计
 
 ```bash
