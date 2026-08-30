@@ -122,10 +122,10 @@ def main() -> int:
     if orphaned:
         errors.append(f"存在 {len(orphaned)} 个未引用资源，示例：{orphaned[:10]}")
 
-    expected_missing = [49, 50, 55, 56]
+    expected_missing: list[int] = []
     actual_missing = sorted(row["page"] for row in known_missing_pages)
     if actual_missing != expected_missing:
-        warnings.append(f"《立体几何》已知原扫描空白/缺页标记变化：{actual_missing}")
+        warnings.append(f"《立体几何》待恢复缺页标记变化：{actual_missing}")
 
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     payload = {
@@ -143,11 +143,11 @@ def main() -> int:
                 if not ((ROOT / filename).parent / ref).is_file()
             ),
             "orphaned_assets": len(orphaned),
-            "known_original_scan_blank_pages": len(known_missing_pages),
+            "unrecovered_source_page_markers": len(known_missing_pages),
             "errors": len(errors),
             "warnings": len(warnings),
         },
-        "known_original_scan_blank_pages": known_missing_pages,
+        "unrecovered_source_page_markers": known_missing_pages,
         "markdown": markdown_rows,
         "errors": errors,
         "warnings": warnings,

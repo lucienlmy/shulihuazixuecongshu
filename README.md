@@ -26,7 +26,7 @@
 .
 ├── books/               # 电子书源文件区
 │   ├── *.md             # 17 册规范正文源
-│   └── assets/          # 4,981 个正文图片资源
+│   └── assets/          # 4,988 个正文图片资源
 ├── raw/                 # 17 册原始扫描 PDF、导入哈希和资料说明
 ├── catalog.json         # 书目、顺序、语言和稳定 EPUB UUID
 ├── epub/                # EPUB 样式、Lua 过滤器及 Pandoc 本地化数据
@@ -109,13 +109,13 @@ make pre-push
 
 - 原始扫描 PDF：17 册、5,927 页
 - 规范 Markdown：17 册
-- 图片资源：4,981 个
-- 图片引用：4,984 次
+- 图片资源：4,988 个
+- 图片引用：4,991 次
 - 缺失或孤立资源：0
-- 已验证 EPUB MathML：88,412 个
+- 已验证 EPUB MathML：88,653 个
 - 空图片替代文本：0
 
-《立体几何》原扫描第 49、50、55、56 页为空白或缺页，仓库保留透明说明，未猜测补写。详见 [`docs/KNOWN_ISSUES.md`](docs/KNOWN_ISSUES.md)。
+《立体几何》原扫描第 49、50、55、56 页仍为空白；Markdown 和 EPUB 已依据另一份扫描逐页核对恢复，`raw/` 原字节未改动。详见 [`docs/KNOWN_ISSUES.md`](docs/KNOWN_ISSUES.md)。
 
 ## 权利说明
 
